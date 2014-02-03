@@ -8,7 +8,7 @@ Curso de Técnologia em Análise e Desenvolvimento de Sistemas
 
 Prof. Plácido Neto
 
-Alunos: Décio Casagrande
+Alunos: Décio Casagrande e
         Luis Felipe
         
       
