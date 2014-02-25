@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-package br.com.principal;
+package br.com.locaja.principal;
 
 /**
  *
  * @author Décio
  */
-public class Popular extends Carro {
+public class Gerente extends Funcionario {
     
 }

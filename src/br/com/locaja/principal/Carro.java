@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package br.com.principal;
+package br.com.locaja.principal;
 
 /**
  *
@@ -12,25 +12,31 @@ package br.com.principal;
  */
 public class Carro {
     
-    private String modelo;
-    private char categoria;
-    private int ano;
+    private String modelo;                 //Modelo do carro.Ex = Clio
+    private char categoria;                //Se Utilitario, luxo ou pop.
+    private int ano;        
     private int chassis;
     private int km;
-    private double valorAluguelDiaria;
-    private double valorAluguelSemana;
-    private char status;
+    // private double valorAluguelDiaria;
+    // private double valorAluguelSemana;
+    private char status;                    //l para locado e d para disponível;
     
-    private void cadastrarVeiculo(){
+   
+    
+    
+    public void cadastrarVeiculo(){
         
     }
     
-    private boolean verificaDisponibilidade(){
-        return true;
+    public boolean verificaDisponibilidade(){
+        return status != 'l';
     }
     
-    private boolean alteraDisponibilidade(){
-        return true;
+    public char alteraDisponibilidade(){
+        if (status == 'l'){
+            return status = 'd';
+        }
+        return status = 'l';
     }
 
     /**
@@ -103,46 +109,4 @@ public class Carro {
         this.km = km;
     }
 
-    /**
-     * @return the valorAluguelDiaria
-     */
-    public double getValorAluguelDiaria() {
-        return valorAluguelDiaria;
-    }
-
-    /**
-     * @param valorAluguelDiaria the valorAluguelDiaria to set
-     */
-    public void setValorAluguelDiaria(double valorAluguelDiaria) {
-        this.valorAluguelDiaria = valorAluguelDiaria;
-    }
-
-    /**
-     * @return the valorAluguelSemana
-     */
-    public double getValorAluguelSemana() {
-        return valorAluguelSemana;
-    }
-
-    /**
-     * @param valorAluguelSemana the valorAluguelSemana to set
-     */
-    public void setValorAluguelSemana(double valorAluguelSemana) {
-        this.valorAluguelSemana = valorAluguelSemana;
-    }
-
-    /**
-     * @return the status
-     */
-    public char getStatus() {
-        return status;
-    }
-
-    /**
-     * @param status the status to set
-     */
-    public void setStatus(char status) {
-        this.status = status;
-    }
-}
-    
+}   

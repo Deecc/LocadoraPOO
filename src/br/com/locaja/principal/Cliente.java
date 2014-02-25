@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package br.com.principal;
+package br.com.locaja.principal;
 
 /**
  *
@@ -20,7 +20,10 @@ public class Cliente {
     private String contato;
     private int cnh;
     
-    private void Cadastrar (){
+    /**
+     *
+     */
+    public void Cadastrar(){
         
     }
 

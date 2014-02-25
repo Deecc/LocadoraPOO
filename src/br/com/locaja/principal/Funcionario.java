@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package br.com.principal;
+package br.com.locaja.principal;
 
 /**
  *
@@ -49,6 +49,13 @@ public class Funcionario {
      */
     public void setSalario(double salario) {
         this.salario = salario;
+    }
+
+    /**
+     * @param matricula the matricula to set
+     */
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
     }
     
     

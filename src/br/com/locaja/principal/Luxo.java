@@ -4,22 +4,14 @@
  * and open the template in the editor.
  */
 
-package br.com.principal;
+package br.com.locaja.principal;
 
 /**
  *
  * @author Décio
  */
-public class Locadora {
-    
-    private double preco;
-    
-    public void EmitirNotaFiscal (){
-        
-    }
-    
-    public double CalcularPreco(){
-        return preco;
-    }
+public class Luxo extends Carro {
+
+   
     
 }
