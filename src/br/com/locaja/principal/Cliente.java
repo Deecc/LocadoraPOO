@@ -20,14 +20,8 @@ public class Cliente {
     private String contato;
     private int cnh;
     
-    /**
-     *
-     */
-    public void Cadastrar(){
-        
-    }
-
-    /**
+    
+        /**
      * @return the nome
      */
     public String getNome() {

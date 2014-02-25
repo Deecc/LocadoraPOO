@@ -1,4 +1,5 @@
 
+import br.com.locaja.mysql.Banco;
 import br.com.locaja.ui.Login;
 
 /*
