@@ -1,0 +1,3 @@
+Conexao de dados ... abrir e fechar por consulta ou uma aberta direto.
+Singleton - pode dar problemas de concorrencia por não ser thread-safe?
+Telas - Chamada de novas telas, melhor abordagem.
