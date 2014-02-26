@@ -8,18 +8,8 @@ package br.com.locaja.principal;
 
 /**
  *
- * @author Décio
+ * @author x05930906912
  */
-public class Locadora {
-    
-    private double preco;
-    
-    public void EmitirNotaFiscal (){
-        
-    }
-    
-    public double CalcularPreco(){
-        return preco;
-    }
+public interface ICliente {
     
 }

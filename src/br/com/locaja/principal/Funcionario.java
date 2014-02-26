@@ -13,7 +13,7 @@ package br.com.locaja.principal;
 public class Funcionario {
     
     private int matricula;
-    private char cargo;
+    private int cargo;
     private double salario;
 
     /**
@@ -26,7 +26,7 @@ public class Funcionario {
     /**
      * @return the cargo
      */
-    public char getCargo() {
+    public int getCargo() {
         return cargo;
     }
 

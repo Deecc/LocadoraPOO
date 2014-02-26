@@ -1,22 +1,25 @@
-
-
-import br.com.locaja.ui.Login;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
+package br.com.locaja.principal;
+
 /**
  *
  * @author x05930906912
  */
-public class Start {
+public interface ICaixa {
+
+    /**
+     *
+     */
+    public void valorTotal();
+
+    /**
+     *
+     */
+    public void valorDesconto();
     
-    public static void main(String args[]) {
-        
-        new Login().setVisible(true);
-        
-    }
 }

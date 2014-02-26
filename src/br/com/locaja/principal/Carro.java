@@ -17,29 +17,9 @@ public class Carro {
     private int ano;        
     private int chassis;
     private int km;
-    // private double valorAluguelDiaria;
-    // private double valorAluguelSemana;
     private char status;                    //l para locado e d para disponível;
     
-   
-    
-    
-    public void cadastrarVeiculo(){
-        
-    }
-    
-    public boolean verificaDisponibilidade(){
-        return status != 'l';
-    }
-    
-    public char alteraDisponibilidade(){
-        if (status == 'l'){
-            return status = 'd';
-        }
-        return status = 'l';
-    }
-
-    /**
+     /**
      * @return the modelo
      */
     public String getModelo() {
@@ -107,6 +87,20 @@ public class Carro {
      */
     public void setKm(int km) {
         this.km = km;
+    }
+
+    /**
+     * @return the status
+     */
+    public char getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(char status) {
+        this.status = status;
     }
 
 }   

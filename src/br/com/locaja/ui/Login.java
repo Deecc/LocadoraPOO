@@ -6,7 +6,7 @@
 
 package br.com.locaja.ui;
 
-import br.com.locaja.mysql.Banco;
+import br.com.locaja.mysql.Conecta;
 import br.com.locaja.principal.Funcionario;
 import java.sql.ResultSet;
 import javax.swing.JFrame;
@@ -141,7 +141,9 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
                 // TODO add your handling code here:
-        System.exit(DISPOSE_ON_CLOSE);
+       int resp = JOptionPane.showConfirmDialog(null,"Deseja realmente sair?");
+       if(resp == 0)
+           System.exit(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
@@ -150,15 +152,8 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Banco db = new Banco("localhost", "root", "sysadmin", "locadoraPOO");
-        if (db.conecta()){
-            System.out.println("Conectado!");
-        }
-        System.out.println("Não Conectado!");
-        /*Funcionario f = new Funcionario();
-        String query = "Select "+f.getMatricula()+" from Clientes";
-        ResultSet rs = db.executaQuery(query);
-        if (rs.equals(jTextField1)) {*/ 
+            
+        
            new Locaja().setVisible(true);
            this.dispose();
            
