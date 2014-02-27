@@ -59,4 +59,32 @@ public class Conecta {
             throw new NullPointerException("Conexão não iniciada!");
         }
     }
+
+    /**
+     * @return the host
+     */
+    public String getHost() {
+        return host;
+    }
+
+     /**
+     * @return the user
+     */
+    public String getUser() {
+        return user;
+    }
+
+    /**
+     * @return the pass
+     */
+    public String getPass() {
+        return pass;
+    }
+
+    /**
+     * @return the bancoDeDados
+     */
+    public String getBancoDeDados() {
+        return bancoDeDados;
+    }
 }  
