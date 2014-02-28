@@ -4,12 +4,22 @@
  * and open the template in the editor.
  */
 
-package br.com.locaja.principal;
+package br.com.locaja.interfaces;
 
 /**
  *
  * @author x05930906912
  */
-public interface ICliente {
+public interface ICaixa {
+
+    /**
+     *
+     */
+    public void valorTotal();
+
+    /**
+     *
+     */
+    public void valorDesconto();
     
 }

@@ -1,5 +1,6 @@
 
 
+import br.com.locaja.principal.Cliente;
 import br.com.locaja.ui.Login;
 
 /*
@@ -15,7 +16,7 @@ import br.com.locaja.ui.Login;
 public class Start {
     
     public static void main(String args[]) {
-        
+       
         new Login().setVisible(true);
         
     }

@@ -6,6 +6,7 @@
 
 package br.com.locaja.principal;
 
+import br.com.locaja.interfaces.ICarro;
 import java.util.Date;
 
 

@@ -16,15 +16,15 @@ import java.sql.SQLException;
  */
 public class Conecta {
     
-    private String host;
-    private String user;
-    private String pass;
-    private String bancoDeDados;
+    private final String host = "localhost";
+    private final String user ="admin";
+    private final String pass="sysadmin";
+    private final String bancoDeDados="locaja";
    
     private Connection con = null;
-    private static Conecta minhaInst = null;
+    public static Conecta minhaInst = null;
     
-    private Conecta(){
+    private Connection Conecta(){
         String url = "jdbc:mysql://"+host+"/"
                 +bancoDeDados+"?"
                 +"user"+user
@@ -38,7 +38,7 @@ public class Conecta {
            }catch (ClassNotFoundException e){
             e.printStackTrace();
            }
-        
+        return con;
     }
     
     /**
@@ -60,31 +60,5 @@ public class Conecta {
         }
     }
 
-    /**
-     * @return the host
-     */
-    public String getHost() {
-        return host;
-    }
-
-     /**
-     * @return the user
-     */
-    public String getUser() {
-        return user;
-    }
-
-    /**
-     * @return the pass
-     */
-    public String getPass() {
-        return pass;
-    }
-
-    /**
-     * @return the bancoDeDados
-     */
-    public String getBancoDeDados() {
-        return bancoDeDados;
-    }
+    
 }  

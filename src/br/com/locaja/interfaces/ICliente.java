@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-package br.com.locaja.principal;
+package br.com.locaja.interfaces;
 
 /**
  *
- * @author Décio
+ * @author x05930906912
  */
-public class ClienteComum extends Cliente{
+public interface ICliente {
     
 }

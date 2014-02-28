@@ -6,18 +6,20 @@
 
 package br.com.locaja.principal;
 
+import br.com.locaja.interfaces.ICarro;
+
 /**
  *
  * @author Décio
  */
-public class Carro {
+public class Carro implements ICarro {
     
     private String modelo;                 //Modelo do carro.Ex = Clio
     private char categoria;                //Se Utilitario, luxo ou pop.
     private int ano;        
     private int chassis;
     private int km;
-    private char status;                    //l para locado e d para disponível;
+    private int status;                    //l para locado e d para disponível;
     
      /**
      * @return the modelo
@@ -92,7 +94,7 @@ public class Carro {
     /**
      * @return the status
      */
-    public char getStatus() {
+    public int getStatus() {
         return status;
     }
 
@@ -101,6 +103,41 @@ public class Carro {
      */
     public void setStatus(char status) {
         this.status = status;
+    }
+
+    @Override
+    public void valorDiaria(double valor, int dias) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void valorSemana(double valor, int semanas) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void valorMes(double valor, int mes) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void kmExtra(double valor, int kmInicial, int kmFinal) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void gasTanque(double valor, int litros) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean verificaDisponibilidade(char status) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public char alteraDisponibilidade(char status) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }   

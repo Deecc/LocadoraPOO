@@ -15,10 +15,12 @@ public class Cliente {
     private String nome;
     private String cpf;
     private String endereco;
+    private String numero;
     private String telefone;
-    private int rg;
-    private String contato;
-    private int cnh;
+    private String ddd;
+    private String rg;
+    private String email;
+    private String cnh;
     
     
         /**
@@ -80,42 +82,70 @@ public class Cliente {
     /**
      * @return the rg
      */
-    public int getRg() {
+    public String getRg() {
         return rg;
     }
 
     /**
      * @param rg the rg to set
      */
-    public void setRg(int rg) {
+    public void setRg(String rg) {
         this.rg = rg;
     }
 
-    /**
-     * @return the contato
-     */
-    public String getContato() {
-        return contato;
-    }
-
-    /**
-     * @param contato the contato to set
-     */
-    public void setContato(String contato) {
-        this.contato = contato;
-    }
-
-    /**
+     /**
      * @return the cnh
      */
-    public int getCnh() {
+    public String getCnh() {
         return cnh;
     }
 
     /**
      * @param cnh the cnh to set
      */
-    public void setCnh(int cnh) {
+    public void setCnh(String cnh) {
         this.cnh = cnh;
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * @return the ddd
+     */
+    public String getDdd() {
+        return ddd;
+    }
+
+    /**
+     * @param ddd the ddd to set
+     */
+    public void setDdd(String ddd) {
+        this.ddd = ddd;
+    }
+
+    /**
+     * @return the numero
+     */
+    public String getNumero() {
+        return numero;
+    }
+
+    /**
+     * @param numero the numero to set
+     */
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 }

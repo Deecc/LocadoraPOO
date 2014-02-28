@@ -6,6 +6,8 @@
 
 package br.com.locaja.ui;
 
+import br.com.locaja.dao.ClienteDAO;
+import br.com.locaja.principal.Cliente;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -63,6 +65,8 @@ public class Locaja extends javax.swing.JFrame {
         jText_ddd = new javax.swing.JTextField();
         BtCadastrar = new javax.swing.JButton();
         BtCancelar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jText_email = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -73,7 +77,6 @@ public class Locaja extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Locajá - Locadora de Veículos");
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
         BtCadastro.setText("Cadastro");
@@ -145,8 +148,21 @@ public class Locaja extends javax.swing.JFrame {
         jText_ddd.setText("DDD");
 
         BtCadastrar.setText("Cadastrar");
+        BtCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtCadastrarActionPerformed(evt);
+            }
+        });
 
         BtCancelar.setText("Cancelar");
+
+        jLabel1.setText("E-mail:");
+
+        jText_email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jText_emailActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout JPCadastro_ClienteLayout = new javax.swing.GroupLayout(JPCadastro_Cliente);
         JPCadastro_Cliente.setLayout(JPCadastro_ClienteLayout);
@@ -154,56 +170,61 @@ public class Locaja extends javax.swing.JFrame {
             JPCadastro_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPCadastro_ClienteLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(JPCadastro_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(JPCadastro_ClienteLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(BtCadastrar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtCancelar))
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel_Nome)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel10)
-                    .addGroup(JPCadastro_ClienteLayout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGroup(JPCadastro_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JPCadastro_ClienteLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(JPCadastro_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jText_cnh)
-                                    .addComponent(jText_cpf)
-                                    .addComponent(jText_nome)
-                                    .addComponent(jText_rg, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jText_ddd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jFor_tel, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(JPCadastro_ClienteLayout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(jText_endereco))))
-                    .addGroup(JPCadastro_ClienteLayout.createSequentialGroup()
-                        .addGroup(JPCadastro_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JPCadastro_ClienteLayout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(jLabel12))
-                            .addComponent(jLabel7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(JPCadastro_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(JPCadastro_ClienteLayout.createSequentialGroup()
-                                .addComponent(jText_numero, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jText_complemento, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jText_cep, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScroll_referencia))))
+                .addGroup(JPCadastro_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPCadastro_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(JPCadastro_ClienteLayout.createSequentialGroup()
+                            .addGap(3, 3, 3)
+                            .addComponent(BtCadastrar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(BtCancelar))
+                        .addComponent(jLabel11)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel_Nome)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel10)
+                        .addGroup(JPCadastro_ClienteLayout.createSequentialGroup()
+                            .addComponent(jLabel5)
+                            .addGroup(JPCadastro_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(JPCadastro_ClienteLayout.createSequentialGroup()
+                                    .addGap(14, 14, 14)
+                                    .addComponent(jText_endereco))
+                                .addGroup(JPCadastro_ClienteLayout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(JPCadastro_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jText_email, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
+                                        .addGroup(JPCadastro_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jText_cnh)
+                                            .addComponent(jText_cpf)
+                                            .addComponent(jText_nome)
+                                            .addComponent(jText_rg, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel8)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jText_ddd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jFor_tel, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGroup(JPCadastro_ClienteLayout.createSequentialGroup()
+                            .addGroup(JPCadastro_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(JPCadastro_ClienteLayout.createSequentialGroup()
+                                    .addGap(3, 3, 3)
+                                    .addComponent(jLabel12))
+                                .addComponent(jLabel7))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(JPCadastro_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(JPCadastro_ClienteLayout.createSequentialGroup()
+                                    .addComponent(jText_numero, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel9)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jText_complemento, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jText_cep, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScroll_referencia))))
+                    .addComponent(jLabel1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         JPCadastro_ClienteLayout.setVerticalGroup(
@@ -230,7 +251,11 @@ public class Locaja extends javax.swing.JFrame {
                 .addGroup(JPCadastro_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jText_rg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JPCadastro_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jText_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
                 .addComponent(jLabel10)
                 .addGap(18, 18, 18)
                 .addGroup(JPCadastro_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -248,7 +273,7 @@ public class Locaja extends javax.swing.JFrame {
                 .addGroup(JPCadastro_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12)
                     .addComponent(jScroll_referencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                 .addGroup(JPCadastro_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtCadastrar)
                     .addComponent(BtCancelar))
@@ -366,6 +391,33 @@ public class Locaja extends javax.swing.JFrame {
         
     }//GEN-LAST:event_BtConsultaActionPerformed
 
+    private void BtCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCadastrarActionPerformed
+        // TODO add your handling code here:
+        Cliente cli = new Cliente();
+        cli.setNome(jText_nome.getText());
+        cli.setCpf(jText_cpf.getText());
+        cli.setEndereco(jText_endereco.getText());
+        cli.setCnh(jText_cnh.getText());
+        cli.setEmail(jText_email.getText());
+        cli.setRg(jText_rg.getText());
+        cli.setNumero(jText_numero.getText());
+        
+        if (jText_nome.getText().isEmpty() || jText_cpf.getText().isEmpty() || jText_endereco.getText().isEmpty() || 
+            jText_numero.getText().isEmpty() || jText_rg.getText().isEmpty() || jText_email.getText().isEmpty() ||
+            jText_cnh.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Os Campos com * devem ser preenchidos!");
+        } else {
+            ClienteDAO dao = new ClienteDAO();
+            dao.Insere(cli);
+            JOptionPane.showMessageDialog(null, "Cliente "+jText_nome.getText()+" cadastrado com sucesso!");
+        }
+        jText_nome.setText("");
+    }//GEN-LAST:event_BtCadastrarActionPerformed
+
+    private void jText_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_emailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jText_emailActionPerformed
+
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -376,6 +428,7 @@ public class Locaja extends javax.swing.JFrame {
     private javax.swing.JButton BtReserva;
     private javax.swing.JPanel JPCadastro_Cliente;
     private javax.swing.JFormattedTextField jFor_tel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -403,6 +456,7 @@ public class Locaja extends javax.swing.JFrame {
     private javax.swing.JTextField jText_complemento;
     private javax.swing.JTextField jText_cpf;
     private javax.swing.JTextField jText_ddd;
+    private javax.swing.JTextField jText_email;
     private javax.swing.JTextField jText_endereco;
     private javax.swing.JTextField jText_nome;
     private javax.swing.JTextField jText_numero;
