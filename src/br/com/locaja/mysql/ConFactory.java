@@ -21,7 +21,7 @@ public class ConFactory {
     private final String pass="sysadmin";
     private final String bancoDeDados="locaja";
     
-    public Connection getConnection() throws ClassNotFoundException{
+    public Connection getConnection() {
         try {
             String url = "jdbc:mysql://"+host+"/"
                 +bancoDeDados+"?"
