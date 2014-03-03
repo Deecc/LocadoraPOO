@@ -26,15 +26,6 @@ import java.sql.SQLException;
 public class ClienteDAO {
     
     
-    private String nome;
-    private String cpf;
-    private String endereco;
-    private String telefone;
-    private String ddd;
-    private String rg;
-    private String email;
-    private String cnh;
-    
     private Connection con;
     private Statement st;
     private  ResultSet rs;
@@ -42,17 +33,17 @@ public class ClienteDAO {
     
     public ClienteDAO() {
        this.con = new ConFactory().getConnection();
+       System.out.println("Conectado!");
        
     }
     
     public void Insere(Cliente cliente){
      
-        String sql = "INSERT INTO Cliente(nome, cpf, endereco, numero "
-                + "rg, email,cnh) VALUES(?,?,?,?,?,?,?)";
-       // String sql2 = "INSERT INTO telefone(telefone,ddd ) VALUES(?,?) WHERE cliente.cod_cli ="+REturn;
+        String sql = "INSERT INTO `locaja`.`cliente`(`nome`, `cpf`, `endereco`, `numero`, "
+                + "`rg`, `email`,`cnh`, `telefone`, `ddd`, `complemento`, `referencia`, `cep`) "
+                + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement psmt = con.prepareStatement(sql);
-            //PreparedStatement psmt2 = con.prepareStatement(sql2);
             psmt.setString(1, cliente.getNome());
             psmt.setString(2, cliente.getCpf());
             psmt.setString(3, cliente.getEndereco());
@@ -60,11 +51,28 @@ public class ClienteDAO {
             psmt.setString(5, cliente.getRg() );
             psmt.setString(6, cliente.getEmail());
             psmt.setString(7, cliente.getCnh() );
+            psmt.setString(8, cliente.getTelefone());
+            psmt.setString(9 , cliente.getDdd() );
+            psmt.setString(10, cliente.getComplemento() );
+            psmt.setString(11, cliente.getReferencia() );
+            psmt.setString(12, cliente.getCEP() );
             psmt.execute();
             psmt.close();
             
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    
+    public void Edita(Cliente cliente){
+        
+    }
+    
+    public void Consulta(Cliente cliente){
+        
+    }
+    
+    public void Deleta(Cliente cliente){
+        
     }
 }

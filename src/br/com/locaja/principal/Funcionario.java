@@ -15,6 +15,7 @@ public class Funcionario {
     private int matricula;
     private int cargo;
     private double salario;
+    private String senha;
 
     /**
      * @return the matricula
@@ -56,6 +57,20 @@ public class Funcionario {
      */
     public void setMatricula(int matricula) {
         this.matricula = matricula;
+    }
+
+    /**
+     * @return the senha
+     */
+    public String getSenha() {
+        return senha;
+    }
+
+    /**
+     * @param senha the senha to set
+     */
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
     
     

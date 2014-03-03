@@ -16,14 +16,16 @@ public class Cliente {
     private String cpf;
     private String endereco;
     private String numero;
+    private String complemento;
+    private String CEP;
     private String telefone;
     private String ddd;
     private String rg;
     private String email;
     private String cnh;
-    
-    
-        /**
+    private String referencia;
+
+    /**
      * @return the nome
      */
     public String getNome() {
@@ -66,6 +68,48 @@ public class Cliente {
     }
 
     /**
+     * @return the numero
+     */
+    public String getNumero() {
+        return numero;
+    }
+
+    /**
+     * @param numero the numero to set
+     */
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    /**
+     * @return the complemento
+     */
+    public String getComplemento() {
+        return complemento;
+    }
+
+    /**
+     * @param complemento the complemento to set
+     */
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    /**
+     * @return the CEP
+     */
+    public String getCEP() {
+        return CEP;
+    }
+
+    /**
+     * @param CEP the CEP to set
+     */
+    public void setCEP(String CEP) {
+        this.CEP = CEP;
+    }
+
+    /**
      * @return the telefone
      */
     public String getTelefone() {
@@ -77,48 +121,6 @@ public class Cliente {
      */
     public void setTelefone(String telefone) {
         this.telefone = telefone;
-    }
-
-    /**
-     * @return the rg
-     */
-    public String getRg() {
-        return rg;
-    }
-
-    /**
-     * @param rg the rg to set
-     */
-    public void setRg(String rg) {
-        this.rg = rg;
-    }
-
-     /**
-     * @return the cnh
-     */
-    public String getCnh() {
-        return cnh;
-    }
-
-    /**
-     * @param cnh the cnh to set
-     */
-    public void setCnh(String cnh) {
-        this.cnh = cnh;
-    }
-
-    /**
-     * @return the email
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * @param email the email to set
-     */
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     /**
@@ -136,16 +138,61 @@ public class Cliente {
     }
 
     /**
-     * @return the numero
+     * @return the rg
      */
-    public String getNumero() {
-        return numero;
+    public String getRg() {
+        return rg;
     }
 
     /**
-     * @param numero the numero to set
+     * @param rg the rg to set
      */
-    public void setNumero(String numero) {
-        this.numero = numero;
+    public void setRg(String rg) {
+        this.rg = rg;
     }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * @return the cnh
+     */
+    public String getCnh() {
+        return cnh;
+    }
+
+    /**
+     * @param cnh the cnh to set
+     */
+    public void setCnh(String cnh) {
+        this.cnh = cnh;
+    }
+
+    /**
+     * @return the referencia
+     */
+    public String getReferencia() {
+        return referencia;
+    }
+
+    /**
+     * @param referencia the referencia to set
+     */
+    public void setReferencia(String referencia) {
+        this.referencia = referencia;
+    }
+    
+    
+    
 }

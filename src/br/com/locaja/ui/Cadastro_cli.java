@@ -8,21 +8,19 @@ package br.com.locaja.ui;
 
 import br.com.locaja.dao.ClienteDAO;
 import br.com.locaja.principal.Cliente;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author x05930906912
+ * @author Décio
  */
-public class Locaja extends javax.swing.JFrame {
+public class Cadastro_cli extends javax.swing.JFrame {
 
     /**
-     * Creates new form JFmClientes
+     * Creates new form Cadastro_cli
      */
-    public Locaja() {
+    public Cadastro_cli() {
         initComponents();
-        JPCadastro_Cliente.setVisible(false);
     }
 
     /**
@@ -34,10 +32,6 @@ public class Locaja extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLayeredPane1 = new javax.swing.JLayeredPane();
-        BtCadastro = new javax.swing.JButton();
-        BtConsulta = new javax.swing.JButton();
-        BtReserva = new javax.swing.JButton();
         JPCadastro_Cliente = new javax.swing.JPanel();
         jLabel_Nome = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -64,36 +58,12 @@ public class Locaja extends javax.swing.JFrame {
         jText_rg = new javax.swing.JTextField();
         jText_ddd = new javax.swing.JTextField();
         BtCadastrar = new javax.swing.JButton();
-        BtCancelar = new javax.swing.JButton();
+        BtLimpar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jText_email = new javax.swing.JTextField();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        BtVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Locajá - Locadora de Veículos");
-        setResizable(false);
-
-        BtCadastro.setText("Cadastro");
-        BtCadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtCadastroActionPerformed(evt);
-            }
-        });
-
-        BtConsulta.setText("Consulta");
-        BtConsulta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtConsultaActionPerformed(evt);
-            }
-        });
-
-        BtReserva.setText("Reserva");
 
         JPCadastro_Cliente.setEnabled(false);
 
@@ -118,6 +88,12 @@ public class Locaja extends javax.swing.JFrame {
         jText_nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jText_nomeActionPerformed(evt);
+            }
+        });
+
+        jFor_tel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFor_telActionPerformed(evt);
             }
         });
 
@@ -154,13 +130,25 @@ public class Locaja extends javax.swing.JFrame {
             }
         });
 
-        BtCancelar.setText("Cancelar");
+        BtLimpar.setText("Limpar");
+        BtLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtLimparActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("E-mail:");
 
         jText_email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jText_emailActionPerformed(evt);
+            }
+        });
+
+        BtVoltar.setText("Voltar");
+        BtVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtVoltarActionPerformed(evt);
             }
         });
 
@@ -176,7 +164,9 @@ public class Locaja extends javax.swing.JFrame {
                             .addGap(3, 3, 3)
                             .addComponent(BtCadastrar)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(BtCancelar))
+                            .addComponent(BtLimpar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(BtVoltar))
                         .addComponent(jLabel11)
                         .addComponent(jLabel3)
                         .addComponent(jLabel_Nome)
@@ -193,11 +183,10 @@ public class Locaja extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addGroup(JPCadastro_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jText_email, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
-                                        .addGroup(JPCadastro_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jText_cnh)
-                                            .addComponent(jText_cpf)
-                                            .addComponent(jText_nome)
-                                            .addComponent(jText_rg, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)))
+                                        .addComponent(jText_cnh)
+                                        .addComponent(jText_cpf)
+                                        .addComponent(jText_nome)
+                                        .addComponent(jText_rg, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jLabel8)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -273,123 +262,53 @@ public class Locaja extends javax.swing.JFrame {
                 .addGroup(JPCadastro_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12)
                     .addComponent(jScroll_referencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(JPCadastro_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtCadastrar)
-                    .addComponent(BtCancelar))
+                    .addComponent(BtLimpar)
+                    .addComponent(BtVoltar))
                 .addContainerGap())
         );
-
-        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
-        jLayeredPane1.setLayout(jLayeredPane1Layout);
-        jLayeredPane1Layout.setHorizontalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addComponent(BtCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BtReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 241, Short.MAX_VALUE))
-                    .addComponent(JPCadastro_Cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jLayeredPane1Layout.setVerticalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtCadastro)
-                    .addComponent(BtConsulta)
-                    .addComponent(BtReserva))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(JPCadastro_Cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(23, 23, 23))
-        );
-        jLayeredPane1.setLayer(BtCadastro, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(BtConsulta, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(BtReserva, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(JPCadastro_Cliente, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        jMenu1.setText("Arquivo");
-
-        jMenuItem1.setText("Novo");
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("Salvar");
-        jMenu1.add(jMenuItem2);
-
-        jMenuItem3.setText("Sair");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem3);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Editar");
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Ajuda");
-        jMenuBar1.add(jMenu3);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1)
+            .addGap(0, 667, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(JPCadastro_Cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1)
+            .addGap(0, 421, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(JPCadastro_Cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void jText_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_nomeActionPerformed
         // TODO add your handling code here:
-       int resp = JOptionPane.showConfirmDialog(null,"Deseja realmente sair?");
-       if(resp == 0)
-           System.exit(DISPOSE_ON_CLOSE);
-       
-       
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_jText_nomeActionPerformed
 
-    private void BtCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCadastroActionPerformed
+    private void jFor_telActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFor_telActionPerformed
         // TODO add your handling code here:
-        JPCadastro_Cliente.setVisible(true);
-        
-    }//GEN-LAST:event_BtCadastroActionPerformed
-
-    private void jText_cepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_cepActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jText_cepActionPerformed
+    }//GEN-LAST:event_jFor_telActionPerformed
 
     private void jText_complementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_complementoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jText_complementoActionPerformed
 
-    private void jText_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_nomeActionPerformed
+    private void jText_cepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_cepActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jText_nomeActionPerformed
-
-    private void BtConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtConsultaActionPerformed
-        // TODO add your handling code here:
-       
-       
-        
-            
-        
-        
-    }//GEN-LAST:event_BtConsultaActionPerformed
+    }//GEN-LAST:event_jText_cepActionPerformed
 
     private void BtCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCadastrarActionPerformed
         // TODO add your handling code here:
@@ -401,8 +320,13 @@ public class Locaja extends javax.swing.JFrame {
         cli.setEmail(jText_email.getText());
         cli.setRg(jText_rg.getText());
         cli.setNumero(jText_numero.getText());
-        
-        if (jText_nome.getText().isEmpty() || jText_cpf.getText().isEmpty() || jText_endereco.getText().isEmpty() || 
+        cli.setComplemento(jText_complemento.getText());
+        cli.setCEP(jText_cep.getText());
+        cli.setReferencia(jTextA_referencia.getText());
+        cli.setDdd(jText_ddd.getText());
+        cli.setTelefone(jFor_tel.getText());
+
+        if (jText_nome.getText().isEmpty() || jText_cpf.getText().isEmpty() || jText_endereco.getText().isEmpty() ||
             jText_numero.getText().isEmpty() || jText_rg.getText().isEmpty() || jText_email.getText().isEmpty() ||
             jText_cnh.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"Os Campos com * devem ser preenchidos!");
@@ -412,20 +336,58 @@ public class Locaja extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Cliente "+jText_nome.getText()+" cadastrado com sucesso!");
         }
         jText_nome.setText("");
+        jTextA_referencia.setText("");
+        jFor_tel.setText("");
+        jText_cep.setText("");
+        jText_complemento.setText("");
+        jText_cnh.setText("");
+        jText_cpf.setText("");
+        jText_ddd.setText("");
+        jText_email.setText("");
+        jText_rg.setText("");
+        jText_endereco.setText("");
+        jText_numero.setText("");
+
     }//GEN-LAST:event_BtCadastrarActionPerformed
+
+    private void BtLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtLimparActionPerformed
+        // TODO add your handling code here:
+        int resp = JOptionPane.showConfirmDialog(null, "Isso apagará os dados do cadastro não salvos, confirma a ação?");
+        if (resp == 0) {
+            jText_nome.setText("");
+            jTextA_referencia.setText("");
+            jFor_tel.setText("");
+            jText_cep.setText("");
+            jText_complemento.setText("");
+            jText_cnh.setText("");
+            jText_cpf.setText("");
+            jText_ddd.setText("");
+            jText_email.setText("");
+            jText_rg.setText("");
+            jText_endereco.setText("");
+            jText_numero.setText("");
+        }
+    }//GEN-LAST:event_BtLimparActionPerformed
 
     private void jText_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_emailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jText_emailActionPerformed
 
-  
+    private void BtVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtVoltarActionPerformed
+        // TODO add your handling code here:
+        int resp = JOptionPane.showConfirmDialog(null, "Ao fechar dados não salvos no cadastro serão perdidos, salve antes de sair. Deseja sair?");
+        if (resp == 0) {
+            this.dispose();
+        }
+    }//GEN-LAST:event_BtVoltarActionPerformed
+
+   
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtCadastrar;
-    private javax.swing.JButton BtCadastro;
-    private javax.swing.JButton BtCancelar;
-    private javax.swing.JButton BtConsulta;
-    private javax.swing.JButton BtReserva;
+    private javax.swing.JButton BtLimpar;
+    private javax.swing.JButton BtVoltar;
     private javax.swing.JPanel JPCadastro_Cliente;
     private javax.swing.JFormattedTextField jFor_tel;
     private javax.swing.JLabel jLabel1;
@@ -441,14 +403,6 @@ public class Locaja extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel_Nome;
-    private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JScrollPane jScroll_referencia;
     private javax.swing.JTextArea jTextA_referencia;
     private javax.swing.JTextField jText_cep;
@@ -463,4 +417,3 @@ public class Locaja extends javax.swing.JFrame {
     private javax.swing.JTextField jText_rg;
     // End of variables declaration//GEN-END:variables
 }
-
