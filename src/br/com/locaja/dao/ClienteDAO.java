@@ -19,6 +19,7 @@ import java.sql.SQLException;
 
 
 
+
 /**
  *
  * @author x05930906912
@@ -65,14 +66,43 @@ public class ClienteDAO {
     }
     
     public void Edita(Cliente cliente){
-        
+        String sql = "UPDATE `locaja`.`cliente` SET `nome` = ? , `cpf` = ?, `endereco` = ?, `numero` = ?, "
+                + "`rg` = ?, `email` = ?,`cnh` = ?, `telefone` = ?, `ddd` = ?, `complemento` = ?, `referencia` = ?, `cep` = ?";
+        try {
+            PreparedStatement psmt = con.prepareStatement(sql);
+            psmt.setString(1, cliente.getNome());
+            psmt.setString(2, cliente.getCpf());
+            psmt.setString(3, cliente.getEndereco());
+            psmt.setString(4, cliente.getNumero());
+            psmt.setString(5, cliente.getRg() );
+            psmt.setString(6, cliente.getEmail());
+            psmt.setString(7, cliente.getCnh() );
+            psmt.setString(8, cliente.getTelefone());
+            psmt.setString(9 , cliente.getDdd() );
+            psmt.setString(10, cliente.getComplemento() );
+            psmt.setString(11, cliente.getReferencia() );
+            psmt.setString(12, cliente.getCEP() );
+            psmt.execute();
+            psmt.close();
+            
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
     
     public void Consulta(Cliente cliente){
-        
+       
     }
     
     public void Deleta(Cliente cliente){
-        
+       String sql = "DELETE FROM `locaja`.`cliente` WHERE `cod_cliente`= ?" ;
+       try {
+           PreparedStatement psmt = con.prepareStatement(sql);
+           rs = psmt.getGeneratedKeys();
+           psmt.setString(1,rs.getString("cod_cliente") );
+           
+       }catch (SQLException e){
+           e.printStackTrace();
+       }
     }
 }

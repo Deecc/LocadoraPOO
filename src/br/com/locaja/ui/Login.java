@@ -7,7 +7,12 @@
 package br.com.locaja.ui;
 
 
+
 import javax.swing.JOptionPane;
+import br.com.locaja.dao.LoginDAO;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,6 +25,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+       
     }
     
     
@@ -149,11 +155,20 @@ public class Login extends javax.swing.JFrame {
 
     private void BtEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtEntrarActionPerformed
         // TODO add your handling code here:
-            
+           LoginDAO l = new LoginDAO();
+        try {
+            if ((jText_Matricula.getText().equals(l.verificaLogin().getString("matricula")) &&
+                jPass_senha.getPassword().equals(l.verificaSenha().getString("senha")))){
+                 Principal p = new Principal();
+                 p.setVisible(true);
+                 this.dispose();
+            }else 
+                JOptionPane.showMessageDialog(null,"Erro!", "Matricula ou Senha incorretos!", ERROR);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-           Principal p = new Principal();
-           p.setVisible(true);
-           this.dispose();
+          
            
         /*} else {
             JOptionPane.showMessageDialog(null, ABORT);
