@@ -66,8 +66,14 @@ public class ClienteDAO {
     }
     
     public void Edita(Cliente cliente){
+        /*update tableA set validation_check = 
+        (SELECT if(start_DTS > end_DTS,'VALID','') as validation_check
+        FROM tableA
+        LEFT JOIN tableB ON name_A = name_B
+        WHERE id_A = tableA.id_A)*/
         String sql = "UPDATE `locaja`.`cliente` SET `nome` = ? , `cpf` = ?, `endereco` = ?, `numero` = ?, "
-                + "`rg` = ?, `email` = ?,`cnh` = ?, `telefone` = ?, `ddd` = ?, `complemento` = ?, `referencia` = ?, `cep` = ?";
+                + "`rg` = ?, `email` = ?,`cnh` = ?, `telefone` = ?, `ddd` = ?, `complemento` = ?, `referencia` = ?, `cep` = ? "
+                + "where (Select `cod_cliente` from `locaja.`cliente`)";
         try {
             PreparedStatement psmt = con.prepareStatement(sql);
             psmt.setString(1, cliente.getNome());

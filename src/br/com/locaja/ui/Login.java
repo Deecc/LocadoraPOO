@@ -52,7 +52,7 @@ public class Login extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 204, 0));
         setName("JFmLogin"); // NOI18N
 
-        jPLogin.setBackground(new java.awt.Color(255, 153, 0));
+        jPLogin.setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel1.setText("Matrícula");
 
@@ -155,7 +155,7 @@ public class Login extends javax.swing.JFrame {
 
     private void BtEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtEntrarActionPerformed
         // TODO add your handling code here:
-           LoginDAO l = new LoginDAO();
+        /*   LoginDAO l = new LoginDAO();
         try {
             if ((jText_Matricula.getText().equals(l.verificaLogin().getString("matricula")) &&
                 jPass_senha.getPassword().equals(l.verificaSenha().getString("senha")))){
@@ -170,10 +170,13 @@ public class Login extends javax.swing.JFrame {
         
           
            
-        /*} else {
+        } else {
             JOptionPane.showMessageDialog(null, ABORT);
         }
         */
+        Principal p = new Principal();
+                 p.setVisible(true);
+                 this.dispose();
     }//GEN-LAST:event_BtEntrarActionPerformed
 
     

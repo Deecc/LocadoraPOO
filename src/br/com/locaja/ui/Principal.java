@@ -127,10 +127,8 @@ public class Principal extends javax.swing.JFrame {
         BtCancelar = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jText_desc_func = new javax.swing.JTextField();
-        jText_desc_ger = new javax.swing.JTextField();
-        jText_desc_especial = new javax.swing.JTextField();
+        jText_Func_cpf = new javax.swing.JTextField();
+        jText_Func_email = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -639,11 +637,9 @@ public class Principal extends javax.swing.JFrame {
 
         BtCancelar.setText("Cancelar");
 
-        jLabel25.setText("Desconto Funcionarios:");
+        jLabel25.setText("CPF:");
 
-        jLabel26.setText("Desconto Gerencial:");
-
-        jLabel27.setText("Desconto Cliente Especial:");
+        jLabel26.setText("Email:");
 
         javax.swing.GroupLayout jPCad_funcLayout = new javax.swing.GroupLayout(jPCad_func);
         jPCad_func.setLayout(jPCad_funcLayout);
@@ -656,29 +652,24 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jLabel23)
                     .addComponent(jLabel24)
                     .addComponent(jLabel25)
-                    .addComponent(jLabel26)
-                    .addComponent(jLabel27))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel26))
+                .addGap(94, 94, 94)
                 .addGroup(jPCad_funcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPCad_funcLayout.createSequentialGroup()
                         .addComponent(jText_salario)
-                        .addGap(87, 87, 87))
+                        .addContainerGap(486, Short.MAX_VALUE))
                     .addGroup(jPCad_funcLayout.createSequentialGroup()
                         .addGroup(jPCad_funcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jText_nome_func, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jText_cargo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jText_desc_func, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jText_desc_ger, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jText_desc_especial, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(89, 89, 89)))
-                .addContainerGap(301, Short.MAX_VALUE))
+                            .addComponent(jText_Func_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jText_Func_email, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(390, Short.MAX_VALUE))))
             .addGroup(jPCad_funcLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
                 .addGroup(jPCad_funcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel21)
                     .addGroup(jPCad_funcLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel21))
-                    .addGroup(jPCad_funcLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
                         .addComponent(BtSalvar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(BtCancelar)))
@@ -704,16 +695,12 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPCad_funcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
-                    .addComponent(jText_desc_func, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jText_Func_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPCad_funcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
-                    .addComponent(jText_desc_ger, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPCad_funcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel27)
-                    .addComponent(jText_desc_especial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jText_Func_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56)
                 .addGroup(jPCad_funcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BtSalvar)
                     .addComponent(BtCancelar))
@@ -963,7 +950,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
@@ -998,15 +984,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextA_referencia;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jText_Func_cpf;
+    private javax.swing.JTextField jText_Func_email;
     private javax.swing.JTextField jText_cargo;
     private javax.swing.JTextField jText_cep;
     private javax.swing.JTextField jText_cnh;
     private javax.swing.JTextField jText_complemento;
     private javax.swing.JTextField jText_cpf;
     private javax.swing.JTextField jText_ddd;
-    private javax.swing.JTextField jText_desc_especial;
-    private javax.swing.JTextField jText_desc_func;
-    private javax.swing.JTextField jText_desc_ger;
     private javax.swing.JTextField jText_email;
     private javax.swing.JTextField jText_endereco;
     private javax.swing.JTextField jText_modelo;
