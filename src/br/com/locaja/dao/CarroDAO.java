@@ -84,13 +84,13 @@ public class CarroDAO {
            try{ 
             while (rs.next()){
                Carro car = new Carro();
-               
+                car.setCod_carro(rs.getInt("cod_carro"));
                 car.setAno(rs.getInt("ano"));
                 car.setCategoria(rs.getString("categoria"));
                 car.setChassis(rs.getLong("chassis"));
                 car.setKm(rs.getInt("km"));
-                car.setModelo("modelo");
-                car.setStatus("status");
+                car.setModelo(rs.getString("modelo"));
+                car.setStatus(rs.getString("status"));
                 carList.add(car);
                 
             }

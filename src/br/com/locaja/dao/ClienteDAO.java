@@ -105,7 +105,7 @@ public class ClienteDAO {
            try{ 
             while (rs.next()){
                 Cliente cli = new Cliente();
-               
+                cli.setCod_cliente(rs.getInt("cod_cliente"));
                 cli.setCEP(rs.getString("cep"));
                 cli.setCnh(rs.getString("cnh"));
                 cli.setComplemento(rs.getString("complemento"));
