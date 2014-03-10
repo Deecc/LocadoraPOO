@@ -30,14 +30,14 @@ public class LoginDAO {
     }
     
     public String verifica(int matricula){
-        String sql = "SELECT senha from `locaja`.`login`, `locaja`.`funcionario` where funcionario.matricula = "+matricula;
+        String sql = "SELECT senha from `locaja`.`login` where cod_func = (select cod_funcionario from funcionario where matricula = "+matricula+")";
         String senha = "";
         try {
              Statement st = con.createStatement();
              ResultSet rs = st.executeQuery(sql);
              while (rs.next()){
                 senha = rs.getString("senha");
-                System.out.println(senha);
+                
              }
              
             

@@ -10,9 +10,8 @@ package br.com.locaja.ui;
 
 import javax.swing.JOptionPane;
 import br.com.locaja.dao.LoginDAO;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+
 
 /**
  *
@@ -49,10 +48,10 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LocaJá - Locadora de Automóveis");
-        setBackground(new java.awt.Color(255, 204, 0));
+        setBackground(new java.awt.Color(204, 204, 204));
         setName("JFmLogin"); // NOI18N
 
-        jPLogin.setBackground(new java.awt.Color(204, 204, 255));
+        jPLogin.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel1.setText("Matrícula");
 

@@ -18,7 +18,7 @@ public class Carro implements ICarro {
     private String modelo;                 //Modelo do carro.Ex = Clio
     private String categoria;                //Se Utilitario, luxo ou pop.
     private int ano;        
-    private int chassis;
+    private long chassis;
     private int km;
     private String status;  //l para locado e d para disponível;
     private double valorDiaria;
@@ -69,14 +69,14 @@ public class Carro implements ICarro {
     /**
      * @return the chassis
      */
-    public int getChassis() {
+    public long getChassis() {
         return chassis;
     }
 
     /**
      * @param chassis the chassis to set
      */
-    public void setChassis(int chassis) {
+    public void setChassis(long chassis) {
         this.chassis = chassis;
     }
 

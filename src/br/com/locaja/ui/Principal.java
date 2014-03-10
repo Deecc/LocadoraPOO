@@ -132,8 +132,8 @@ public class Principal extends javax.swing.JFrame {
         jText_modelo = new javax.swing.JTextField();
         jFor_ano = new javax.swing.JFormattedTextField();
         jComboBox_Categoria = new javax.swing.JComboBox();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jText_chassis = new javax.swing.JTextField();
+        jText_km = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox();
         BtLimpar1 = new javax.swing.JButton();
         BtCadastrar1 = new javax.swing.JButton();
@@ -666,7 +666,7 @@ public class Principal extends javax.swing.JFrame {
                                     .addGroup(jPCad_veiculoLayout.createSequentialGroup()
                                         .addComponent(jLabel17)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jText_km, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPCad_veiculoLayout.createSequentialGroup()
                                         .addComponent(jLabel13)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -684,7 +684,7 @@ public class Principal extends javax.swing.JFrame {
                                 .addGroup(jPCad_veiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPCad_veiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jTextField1)
+                                        .addComponent(jText_chassis)
                                         .addComponent(jFor_ano, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPCad_veiculoLayout.createSequentialGroup()
                                 .addGap(8, 8, 8)
@@ -711,7 +711,7 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPCad_veiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel17)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jText_km, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPCad_veiculoLayout.createSequentialGroup()
                         .addGroup(jPCad_veiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
@@ -719,7 +719,7 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPCad_veiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jText_chassis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPCad_veiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1055,10 +1055,33 @@ public class Principal extends javax.swing.JFrame {
 
     private void BtLimpar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtLimpar1ActionPerformed
         // TODO add your handling code here:
+        jFor_ano.setText("");
+        jText_chassis.setText("");
+        jText_km.setText("");
+        jText_modelo.setText("");
+        
     }//GEN-LAST:event_BtLimpar1ActionPerformed
 
     private void BtCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCadastrar1ActionPerformed
         // TODO add your handling code here:
+        Carro car = new Carro();
+        int ano = Integer.parseInt(jFor_ano.getText());
+        car.setAno(ano);
+        car.setCategoria(String.valueOf(jComboBox_Categoria.getSelectedItem()));
+        long chassis = Long.parseLong(jText_chassis.getText());
+        car.setChassis(chassis);
+        int km = Integer.parseInt(jText_km.getText());
+        car.setKm(km);
+        car.setModelo(jText_modelo.getText());
+        car.setStatus(String.valueOf(jComboBox1.getSelectedItem()));
+        CarroDAO carDao = new CarroDAO();
+        carDao.Insere(car);
+        JOptionPane.showMessageDialog(null, "Veiculo "+jText_modelo.getText()+" cadastrado com sucesso!");
+        jFor_ano.setText("");
+        jText_chassis.setText("");
+        jText_km.setText("");
+        jText_modelo.setText("");
+
     }//GEN-LAST:event_BtCadastrar1ActionPerformed
 
     private void BtLimpaSelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtLimpaSelActionPerformed
@@ -1145,7 +1168,6 @@ public class Principal extends javax.swing.JFrame {
         alu.setKm_inicial(km);
         Cliente cli = new Cliente();
         cli.setNome(jText_res_cli.getText());
-        cli.getCod_cliente();
         ReservaDAO rdao = new ReservaDAO();
         rdao.Aluga(alu, cli);
         JOptionPane.showMessageDialog(null, "Reserva para o cliente "+cli.getNome()+" efetuada com sucesso!");
@@ -1271,8 +1293,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable_result;
     private javax.swing.JTextArea jTextA_referencia;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jText_cai_cod_res;
     private javax.swing.JTextField jText_cai_dias;
@@ -1281,6 +1301,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField jText_cai_valorDiaria;
     private javax.swing.JTextField jText_cai_valor_total;
     private javax.swing.JTextField jText_cep;
+    private javax.swing.JTextField jText_chassis;
     private javax.swing.JTextField jText_cnh;
     private javax.swing.JTextField jText_complemento;
     private javax.swing.JTextField jText_cpf;
@@ -1291,6 +1312,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField jText_func_email;
     private javax.swing.JTextField jText_func_nome;
     private javax.swing.JTextField jText_func_salario;
+    private javax.swing.JTextField jText_km;
     private javax.swing.JTextField jText_km_inicio;
     private javax.swing.JTextField jText_modelo;
     private javax.swing.JTextField jText_nome;

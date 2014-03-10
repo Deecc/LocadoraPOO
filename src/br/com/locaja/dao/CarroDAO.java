@@ -36,12 +36,12 @@ public class CarroDAO {
 	
     public void Insere(Carro carro){
      
-        String sql = "INSERT INTO `locaja`.`carro`(`modelo`, `chassis`, `categoria`, `km`,`status`, `ano`"
-                + "VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO `locaja`.`carro`(`modelo`, `chassis`, `categoria`, `km`,`status`, `ano`, `preco_diaria`)"
+                + "VALUES(?,?,?,?,?,?, "+carro.getValorDiaria()+")";
         try {
             PreparedStatement psmt = con.prepareStatement(sql);
             psmt.setString(1, carro.getModelo());
-            psmt.setInt(2, carro.getChassis());
+            psmt.setLong(2, carro.getChassis());
             psmt.setString(3, carro.getCategoria());
             psmt.setInt(4, carro.getKm());
             psmt.setString(5, carro.getStatus());
@@ -62,7 +62,7 @@ public class CarroDAO {
         try {
             PreparedStatement psmt = con.prepareStatement(sql);
             psmt.setString(1, carro.getModelo());
-            psmt.setInt(2, carro.getChassis());
+            psmt.setLong(2, carro.getChassis());
             psmt.setString(3, carro.getCategoria());
             psmt.setInt(4, carro.getKm());
             psmt.setString(5, carro.getStatus());
@@ -87,7 +87,7 @@ public class CarroDAO {
                
                 car.setAno(rs.getInt("ano"));
                 car.setCategoria(rs.getString("categoria"));
-                car.setChassis(rs.getInt("chassis"));
+                car.setChassis(rs.getLong("chassis"));
                 car.setKm(rs.getInt("km"));
                 car.setModelo("modelo");
                 car.setStatus("status");
