@@ -4,22 +4,12 @@
  * and open the template in the editor.
  */
 
-package br.com.locaja.principal;
+package br.com.locaja.ui;
 
 /**
  *
  * @author Décio
  */
-public class Caixa {
-    
-    private double preco;
-    
-    public void EmitirNotaFiscal (){
-        
-    }
-    
-    public double CalcularPreco(){
-        return preco;
-    }
+public class reservaDAO {
     
 }

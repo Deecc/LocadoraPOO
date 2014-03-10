@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-package br.com.locaja.dao;
+package br.com.locaja.principal;
 
 /**
  *
- * @author x05930906912
+ * @author Décio
  */
-public class CaixaDAO {
+class daTe {
     
 }

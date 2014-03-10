@@ -155,28 +155,35 @@ public class Login extends javax.swing.JFrame {
 
     private void BtEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtEntrarActionPerformed
         // TODO add your handling code here:
-        /*   LoginDAO l = new LoginDAO();
-        try {
-            if ((jText_Matricula.getText().equals(l.verificaLogin().getString("matricula")) &&
-                jPass_senha.getPassword().equals(l.verificaSenha().getString("senha")))){
-                 Principal p = new Principal();
-                 p.setVisible(true);
-                 this.dispose();
-            }else 
-                JOptionPane.showMessageDialog(null,"Erro!", "Matricula ou Senha incorretos!", ERROR);
-        } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+       
+        LoginDAO l = new LoginDAO();
+        int matricula = 0;
+       
+        if (jText_Matricula.getText().isEmpty() || jPass_senha.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Você precisa inserir o numero da matricula e a senha");
+        }else {
+             matricula = Integer.parseInt(jText_Matricula.getText()); 
+             String senha = jPass_senha.getText();
+             String pass = l.verifica(matricula);
+             
+             if (senha.equals(pass)){
+                Principal p = new Principal();
+                p.setVisible(true);
+                this.dispose();
+         }else {
+                JOptionPane.showMessageDialog(null, "Matricula ou senha incorreta!");
+            }
         }
         
+        
           
-           
-        } else {
-            JOptionPane.showMessageDialog(null, ABORT);
-        }
-        */
-        Principal p = new Principal();
-                 p.setVisible(true);
-                 this.dispose();
+         //*/  
+      
+        
+        //Principal p = new Principal();
+        //p.setVisible(true);
+       // this.dispose(); 
+          
     }//GEN-LAST:event_BtEntrarActionPerformed
 
     
@@ -190,4 +197,5 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPass_senha;
     private javax.swing.JTextField jText_Matricula;
     // End of variables declaration//GEN-END:variables
+    
 }

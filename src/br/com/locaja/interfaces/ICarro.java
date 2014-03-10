@@ -14,52 +14,16 @@ public interface ICarro {
 
     /**
      *
-     * @param valor
-     * @param dias
+     * @return 
      */
-    public void valorDiaria(double valor, int dias);
+    public double valorDiaria();
 
     /**
      *
-     * @param valor
-     * @param semanas
+     * @return 
      */
-    public void valorSemana(double valor, int semanas);
+    public double kmExtra();
 
-    /**
-     *
-     * @param valor
-     * @param mes
-     */
-    public void valorMes(double valor, int mes);
-
-    /**
-     *
-     * @param valor
-     * @param kmInicial
-     * @param kmFinal
-     */
-    public void kmExtra(double valor, int kmInicial, int kmFinal);
-
-    /**
-     *
-     * @param valor
-     * @param litros
-     */
-    public void gasTanque(double valor, int litros);
     
-    /**
-     *
-     * @param status
-     * @return
-     */
-    public boolean verificaDisponibilidade(char status);
-
-    /**
-     *
-     * @param status
-     * @return
-     */
-    public char alteraDisponibilidade(char status);
     
 }

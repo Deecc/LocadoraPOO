@@ -8,7 +8,7 @@ package br.com.locaja.dao;
 
 import br.com.locaja.mysql.ConFactory;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -20,37 +20,34 @@ import java.sql.SQLException;
 public class LoginDAO {
     
     private Connection con;
-    private PreparedStatement pst;
-    private  ResultSet rsSenha,rsLogin;
-    
-    public void LoginDAO(){
+
+    /**
+     *
+     */
+    public LoginDAO(){
         this.con = new ConFactory().getConnection();
         System.out.println("Conectado ao Banco!");
     }
     
-    public ResultSet verificaSenha(){
-        String sql = "SELECT senha from `locaja`.`login`";
+    public String verifica(int matricula){
+        String sql = "SELECT senha from `locaja`.`login`, `locaja`.`funcionario` where funcionario.matricula = "+matricula;
+        String senha = "";
         try {
+             Statement st = con.createStatement();
+             ResultSet rs = st.executeQuery(sql);
+             while (rs.next()){
+                senha = rs.getString("senha");
+                System.out.println(senha);
+             }
+             
             
-             rsSenha = pst.executeQuery(sql);
-             System.out.println(rsSenha);
              
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return rsSenha;
+        return senha ;
     }
     
-    public ResultSet verificaLogin(){
-        String sql = "SELECT matricula from `locaja`.`funcionario`";
-        try {
-            
-             rsLogin = pst.executeQuery(sql);
-             System.out.println(rsLogin);
-             
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return rsLogin;
-    }
+    
+    
 }

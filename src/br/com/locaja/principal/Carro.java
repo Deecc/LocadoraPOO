@@ -14,12 +14,15 @@ import br.com.locaja.interfaces.ICarro;
  */
 public class Carro implements ICarro {
     
+    private int cod_carro;
     private String modelo;                 //Modelo do carro.Ex = Clio
-    private char categoria;                //Se Utilitario, luxo ou pop.
+    private String categoria;                //Se Utilitario, luxo ou pop.
     private int ano;        
     private int chassis;
     private int km;
-    private int status;                    //l para locado e d para disponível;
+    private String status;  //l para locado e d para disponível;
+    private double valorDiaria;
+    
     
      /**
      * @return the modelo
@@ -38,14 +41,14 @@ public class Carro implements ICarro {
     /**
      * @return the categoria
      */
-    public char getCategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
     /**
      * @param categoria the categoria to set
      */
-    public void setCategoria(char categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
@@ -94,50 +97,98 @@ public class Carro implements ICarro {
     /**
      * @return the status
      */
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
     /**
      * @param status the status to set
      */
-    public void setStatus(char status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
-    @Override
-    public void valorDiaria(double valor, int dias) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  
+    /**
+     * @return the cod_carro
+     */
+    public int getCod_carro() {
+        return cod_carro;
     }
 
-    @Override
-    public void valorSemana(double valor, int semanas) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * @param cod_carro the cod_carro to set
+     */
+    public void setCod_carro(int cod_carro) {
+        this.cod_carro = cod_carro;
     }
 
+    
     @Override
-    public void valorMes(double valor, int mes) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+     public double valorDiaria() {
+       double valor;
+       if (this.getCategoria().equals("Popular")){
+           valor = 45.00;
+       }else if (this.getCategoria().equals("Utilitario")){
+           valor = 65.00;
+        }else valor = 85.00;
+        
+       return valor;
+    }   
 
     @Override
-    public void kmExtra(double valor, int kmInicial, int kmFinal) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public double kmExtra() {
+       double kmExtra;
+        switch (this.getCategoria()) {
+            case "Popular":
+                kmExtra = 3.50;
+                break;
+            case "Utilitario":
+                kmExtra = 4.50;
+                break;
+            default:
+                kmExtra = 6.50;
+                break;
+        }
+        
+       return kmExtra;
+    }  
+    
+    
+    public String verificaDisponibilidade(String status){
+       return this.getStatus();
+        
     }
 
-    @Override
-    public void gasTanque(double valor, int litros) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     *
+     * @param status
+     * @return
+     */
+    public String alteraDisponibilidade(String status){
+        if (this.getStatus().equals("Disponivel")){
+            this.setStatus("Alugado");
+        }else this.setStatus("Disponivel");
+        return this.getStatus();
     }
 
-    @Override
-    public boolean verificaDisponibilidade(char status) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * @return the valorDiaria
+     */
+    public double getValorDiaria() {
+        return valorDiaria;
     }
 
-    @Override
-    public char alteraDisponibilidade(char status) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * @param valorDiaria the valorDiaria to set
+     */
+    public void setValorDiaria(double valorDiaria) {
+        this.valorDiaria = valorDiaria;
     }
+      
+    
+    
+ }
 
-}   
+  
+   

@@ -9,11 +9,14 @@ package br.com.locaja.dao;
 
 import br.com.locaja.mysql.ConFactory;
 import br.com.locaja.principal.Cliente;
-import com.mysql.jdbc.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 
 
 
@@ -28,8 +31,9 @@ public class ClienteDAO {
     
     
     private Connection con;
-    private Statement st;
     private  ResultSet rs;
+    private Statement st;
+   
    
     
     public ClienteDAO() {
@@ -66,14 +70,10 @@ public class ClienteDAO {
     }
     
     public void Edita(Cliente cliente){
-        /*update tableA set validation_check = 
-        (SELECT if(start_DTS > end_DTS,'VALID','') as validation_check
-        FROM tableA
-        LEFT JOIN tableB ON name_A = name_B
-        WHERE id_A = tableA.id_A)*/
+     
         String sql = "UPDATE `locaja`.`cliente` SET `nome` = ? , `cpf` = ?, `endereco` = ?, `numero` = ?, "
                 + "`rg` = ?, `email` = ?,`cnh` = ?, `telefone` = ?, `ddd` = ?, `complemento` = ?, `referencia` = ?, `cep` = ? "
-                + "where (Select `cod_cliente` from `locaja.`cliente`)";
+                +"where `cpf` = "+ cliente.getCpf();
         try {
             PreparedStatement psmt = con.prepareStatement(sql);
             psmt.setString(1, cliente.getNome());
@@ -96,19 +96,53 @@ public class ClienteDAO {
         }
     }
     
-    public void Consulta(Cliente cliente){
-       
+    public ArrayList<Cliente> getClientes(){
+        ArrayList<Cliente> cliList = new ArrayList<>();
+        try {
+            String sql = "Select * from cliente";
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+           try{ 
+            while (rs.next()){
+                Cliente cli = new Cliente();
+               
+                cli.setCEP(rs.getString("cep"));
+                cli.setCnh(rs.getString("cnh"));
+                cli.setComplemento(rs.getString("complemento"));
+                cli.setCpf(rs.getString("cpf"));
+                cli.setDdd(rs.getString("ddd"));
+                cli.setEmail(rs.getString("email"));
+                cli.setEndereco(rs.getString("endereco"));
+                cli.setNome(rs.getString("nome"));
+                cli.setNumero(rs.getString("numero"));
+                cli.setRg(rs.getString("rg"));
+                cli.setTelefone(rs.getString("telefone"));
+                cli.setReferencia(rs.getString("referencia"));
+                cliList.add(cli);
+                
+            }
+           }finally {
+               rs.close();
+               st.close();
+           }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+      return cliList;  
     }
     
     public void Deleta(Cliente cliente){
-       String sql = "DELETE FROM `locaja`.`cliente` WHERE `cod_cliente`= ?" ;
+       String sql = "DELETE FROM `locaja`.`cliente` WHERE `cpf`= ?"+cliente.getCpf() ;
        try {
            PreparedStatement psmt = con.prepareStatement(sql);
-           rs = psmt.getGeneratedKeys();
-           psmt.setString(1,rs.getString("cod_cliente") );
-           
+           psmt.execute();
+           psmt.close();
+           JOptionPane.showMessageDialog(null,"Registro deletado com Sucesso!");
        }catch (SQLException e){
            e.printStackTrace();
        }
     }
+    
+   
+   
 }

@@ -12,6 +12,7 @@ package br.com.locaja.principal;
  */
 public class Cliente {
     
+    private int cod_cliente;
     private String nome;
     private String cpf;
     private String endereco;
@@ -191,6 +192,20 @@ public class Cliente {
      */
     public void setReferencia(String referencia) {
         this.referencia = referencia;
+    }
+
+    /**
+     * @return the cod_cliente
+     */
+    public int getCod_cliente() {
+        return cod_cliente;
+    }
+
+    /**
+     * @param cod_cliente the cod_cliente to set
+     */
+    public void setCod_cliente(int cod_cliente) {
+        this.cod_cliente = cod_cliente;
     }
     
     
